@@ -146,9 +146,40 @@ Can you spot the packets initiating the connection ? The packet requesting the i
 
 ##### Objective B: Host A and B on Vlan10. Host C on Vlan20
 
+```
+enable
+conf t
+interface range Ethernet0/0-1
+switchport access vlan 10
+no sh
+interface  Ethernet0/2
+switchport access vlan 20
+no sh
+exit
+exit
+wr
+```
 
+* Ping A->B. Do you have an answer ?
+* Ping B->C. Do you have an answer ?
 
 ##### Objective C: Host A on Vlan10. Host B moves to Vlan20. Host C on Vlan20
+
+```
+enable
+conf t
+interface  Ethernet0/1
+switchport access vlan 20
+no sh
+interface range Ethernet0/2
+switchport access vlan 20
+no sh
+exit
+exit
+wr
+```
+* Ping A->B. Do you have an answer ?
+* Ping B->C. Do you have an answer ?
 
 
 
